@@ -1,13 +1,5 @@
-import { db } from "/js/firebase.js";
-import {
-  collection,
-  addDoc,
-  getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-const form = document.getElementById("registroForm");
-const tablaRegistros = document.getElementById("tablaRegistros");
-const tablaBody = document.getElementById("tablaBody");
+import { db } from "./firebase.js";
+const tablaBody = document.getElementById("tablaRegistrosBody");
 const verRegistrosBtn = document.getElementById("verRegistros");
 
 // ✔ Guardar datos
