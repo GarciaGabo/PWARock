@@ -370,22 +370,30 @@ body{
     }
 }
 
+/* ==========================
+   ESTILOS DE BOTONES CORREGIDOS
+   ========================== */
 
-.btn-primary {
-    background: #FB314E;
-    color: white;
-    padding: 12px 25px;
+/* 1. Selecciona el botón 'Enviar' por su tipo/ubicación Y el botón 'Visualizar Registros' por su ID */
+.form-card button[type="submit"], /* Selecciona el botón 'Enviar' */
+#verRegistros { /* ID CORREGIDO: Selecciona el botón 'Visualizar Registros' */
+    background: #990000;
     border: none;
-    border-radius: 8px;
+    padding: 12px 25px;
     font-size: 16px;
-    font-weight: 600;
+    color: white;
+    border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(251, 49, 78, 0.4);
-    transition: all .3s ease;
+    margin-right: 10px;
+    transition: 0.3s;
+    /* Para que los botones se muestren en línea (opcional, si quieres que estén juntos) */
+    display: inline-block; 
 }
 
-.btn-primary:hover {
-    background: #d6263d;
-    box-shadow: 0 6px 14px rgba(251, 49, 78, 0.55);
-    transform: translateY(-2px);
+/* 2. Estilos para el estado hover (al pasar el ratón) */
+.form-card button[type="submit"]:hover,
+#verRegistros:hover {
+    background: #c40000;
+    /* Puedes añadir una sombra para un mejor efecto */
+    box-shadow: 0 0 10px rgba(153, 0, 0, 0.7); 
 }
