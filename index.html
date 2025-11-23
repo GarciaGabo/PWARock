@@ -32,8 +32,26 @@
 
     <!-- JQUERY -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+
+    <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAkyJAy5vieRmHjoZWPEezUDzywQWlMh_E",
+      authDomain: "lili-418a8.firebaseapp.com",
+      projectId: "lili-418a8",
+      storageBucket: "lili-418a8.firebasestorage.app",
+      messagingSenderId: "926454298512",
+      appId: "1:926454298512:web:4dff9df8c533a69113a515",
+      measurementId: "G-WJ3PV6V4DP"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    </script>
+
      <script src="main.js"></script>
-     <script type="module" src="js/firebase.js"></script>
      <script type="module" src="js/formulario.js"></script>
 
 </head>
@@ -238,5 +256,6 @@
     </footer>
 </body>
 </html>
+
 
 
