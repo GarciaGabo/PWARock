@@ -369,3 +369,23 @@ body{
         font-size: 12px;
     }
 }
+
+
+.btn-primary {
+    background: #FB314E;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(251, 49, 78, 0.4);
+    transition: all .3s ease;
+}
+
+.btn-primary:hover {
+    background: #d6263d;
+    box-shadow: 0 6px 14px rgba(251, 49, 78, 0.55);
+    transform: translateY(-2px);
+}
