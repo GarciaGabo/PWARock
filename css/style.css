@@ -275,6 +275,7 @@ body{
     background: #111;
     border-radius: 10px;
     box-shadow: 0px 0px 8px #990000;
+    text-align: center;
 }
 
 .form-card h2 {
@@ -306,24 +307,6 @@ body{
 .form-group textarea {
     height: 100px;
     resize: none;
-}
-
-#btnEnviar,
-#verRegistrosBtn {
-    background: #990000;
-    border: none;
-    padding: 12px 25px;
-    font-size: 16px;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: 0.3s;
-}
-
-#btnEnviar:hover,
-#verRegistrosBtn:hover {
-    background: #c40000;
 }
 
 /* ==========================
@@ -397,3 +380,4 @@ body{
     /* Puedes añadir una sombra para un mejor efecto */
     box-shadow: 0 0 10px rgba(153, 0, 0, 0.7); 
 }
+
