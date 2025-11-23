@@ -1,6 +1,3 @@
-import { db } from "./firebase.js";
-import { collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
 const form = document.getElementById("registroForm");
 
 // GUARDAR REGISTRO
@@ -14,7 +11,7 @@ form.addEventListener("submit", async (e) => {
     let comentarios = document.getElementById("comentarios").value;
 
     try {
-        await addDoc(collection(db, "registros"), {
+        await db.collection("registros").add({
             nombre,
             edad,
             correo,
@@ -37,8 +34,8 @@ document.getElementById("verRegistros").addEventListener("click", async () => {
     let tabla = document.getElementById("tablaRegistrosBody");
     tabla.innerHTML = "";
 
-    const querySnapshot = await getDocs(collection(db, "registros"));
-    querySnapshot.forEach((doc) => {
+    const snapshot = await db.collection("registros").get();
+    snapshot.forEach((doc) => {
         const data = doc.data();
         tabla.innerHTML += `
             <tr>
