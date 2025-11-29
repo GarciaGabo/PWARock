@@ -5,7 +5,10 @@ import {
   addDoc,
   getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
+import { 
+  getMessaging, 
+  getToken 
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging.js";
 // Configuración
 const firebaseConfig = {
   apiKey: "AIzaSyAkyJAy5vieRmHjoZWPEezUDzywQWlMh_E",
@@ -20,3 +23,4 @@ const firebaseConfig = {
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+export const messaging = getMessaging(app);
