@@ -48,6 +48,8 @@ $(document).ready(function() {
     const tablaBody = document.getElementById("tablaRegistrosBody");
     const verRegistrosBtn = document.getElementById("verRegistros");
 
+    subscribeToPush();
+    
     // ✔ Guardar datos
     if (form) { // Comprobamos que el elemento exista
         form.addEventListener("submit", async (e) => {
@@ -102,4 +104,5 @@ $(document).ready(function() {
         });
     }
 });
+
 
