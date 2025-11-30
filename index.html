@@ -33,6 +33,18 @@
     <!-- JQUERY -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
      <script src="main.js"></script>
+     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+        window.OneSignalDeferred = window.OneSignalDeferred || [];
+        OneSignalDeferred.push(async function(OneSignal) {
+            await OneSignal.init({
+                appId: "TU_APP_ID_DE_ONESIGNAL",
+                notifyButton: {
+                    enable: true
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <header id="main-header">
@@ -240,5 +252,6 @@
 <script type="module" src="js/formulario.js"></script>
 </body>
 </html>
+
 
 
