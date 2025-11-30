@@ -1,3 +1,20 @@
+// Importar el SDK de Service Worker de Firebase Messaging.
+importScripts('https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-sw.js');
+
+// Configuración de Firebase (copiada de firebase.js)
+const firebaseConfig = {
+    apiKey: "AIzaSyAkyJAy5vieRmHjoZWPEezUDzywQWlMh_E",
+    authDomain: "lili-418a8.firebaseapp.com",
+    projectId: "lili-418a8",
+    storageBucket: "lili-418a8.firebasestorage.app",
+    messagingSenderId: "926454298512",
+    appId: "1:926454298512:web:4dff9df8c533a69113a515",
+    measurementId: "G-WJ3PV6V4DP"
+};
+
+// Inicializar Firebase para el Service Worker
+firebase.initializeApp(firebaseConfig);
+
 //Asignar nombre y version de la cache
 const CACHE_NAME = 'v1_cache_LilianaGonzalezPWA';
 
@@ -75,5 +92,35 @@ self.addEventListener('fetch', e=>{
             }
             return fetch(e.request);
         })
+    );
+
+});
+
+// Evento Push (Muestra la notificación recibida de FCM)
+self.addEventListener('push', (event) => {
+    // Si la notificación no viene de Firebase o está vacía, evitamos errores.
+    if (event.data) {
+        // Extraemos el payload (título, cuerpo, etc.)
+        const data = event.data.json().notification;
+        
+        const title = data.title || '¡Nueva Alerta!';
+        const options = {
+            body: data.body || 'Entérate de las novedades del Rock.',
+            icon: '/img/favicon-192.png', // Debe existir en tu proyecto
+            badge: '/img/favicon-96.png'
+            };
+
+        event.waitUntil(
+            self.registration.showNotification(title, options)
+        );
+    }
+});
+// Evento Click (Maneja la acción cuando el usuario hace click en la notificación)
+self.addEventListener('notificationclick', (event) => {
+    event.notification.close();
+    
+    // Abre la página principal (la raíz) al hacer click
+    event.waitUntil(
+        clients.openWindow('/') 
     );
 });
