@@ -16,7 +16,10 @@ async function notificarEnvio() {
         body: JSON.stringify({
             mensaje: "📩 ¡Nuevo formulario enviado!",
         })
-    });
+    })
+    .then(res => res.json())
+    .then(data => console.log("Respuesta servidor:", data))
+    .catch(err => console.error("Error en notificarEnvio:", err));
 }
 
 function subscribeToPush() {
@@ -74,11 +77,10 @@ $(document).ready(function() {
                     comentarios
                 });
 
-                alert("Datos enviados correctamente.");
-                form.reset();
+alert("Datos enviados correctamente.");
+await notificarEnvio();  // ← ENVÍA LA NOTIFICACIÓN
+form.reset();
 
-                // ✨ NUEVO — Enviar notificación después de enviar datos
-                await notificarEnvio();
 
             } catch (error) {
                 console.error("Error al guardar:", error);
@@ -110,3 +112,4 @@ $(document).ready(function() {
         });
     }
 });
+
